@@ -13,10 +13,10 @@ setup(
     ],
     install_requires=['setuptools','numpy','rclpy'],
     zip_safe=True,
-    maintainer='spehari',
-    maintainer_email='spehari@todo.todo',
-    description='TODO: Package description',
-    license='Apache-2.0',
+    maintainer='Ian Spehar',
+    maintainer_email='ian.spehar01@gmail.com',
+    description='HW2: Topic Practice',
+    license='BSD-3-Clause',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
