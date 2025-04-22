@@ -1,0 +1,7 @@
+#Enabe logging service
+# Inputs 
+bool logging  #Logging on/off
+string filename #Csv file to log data
+---
+# Output:
+string status  #Returns verification message

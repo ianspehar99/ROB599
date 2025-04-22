@@ -1,0 +1,6 @@
+# Send_data service: 
+#Input
+bool send
+---
+# Output
+string update  #R eturn confirmtation message 
