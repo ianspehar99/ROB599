@@ -25,7 +25,7 @@ class SendNode(Node):
         period = 1/freq
         self.timer = self.create_timer(period,self.publisher_callback)
 
-        # Creates ervice  (type,name,callback)
+        # Creates ervice  (type,ros2 callname,callback)
         self.service = self.create_service(SendData, 'senddata', self.service_callback)
 
         # Start publishing switch for False initially, will change with service call
@@ -42,8 +42,7 @@ class SendNode(Node):
             block = [0,0,0]   # Block data, doesnt matter
 
             #Get current time
-            t = self.get_clock().now()
-            t = t.nanoseconds/(1e9) #Convert to seconds
+            t = self.get_clock().now().to_msg()
 
             #Init msg type
             msg = TestPacket()
@@ -56,21 +55,18 @@ class SendNode(Node):
             self.pub.publish(msg)
 
             #Print published wave data
-            self.get_logger().info('Data published, time: "%s"' % msg.send_time)
+            self.get_logger().info('Data published, time: "%s"' % t)
 
     def service_callback(self, request, response):
         
         # Access input from service call/client
-        bool = request.send 
+        send_bool = request.send 
 
         # Set variable so that the publisher callback can access it
-        self.switch = bool
-
-        # Confirmed that it has been recieved
-        self.get_logger().info('Service call received, publishing = "%s"' % bool)
+        self.switch = send_bool
         
         # Set response so that we can see it was received and whats happening
-        if bool:
+        if send_bool:
             response.update = "Service call received, node has been started"
         else:
             response.update = "Service call received, node has been stopped"
