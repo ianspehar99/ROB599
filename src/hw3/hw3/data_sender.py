@@ -25,7 +25,7 @@ class SendNode(Node):
         period = 1/freq
         self.timer = self.create_timer(period,self.publisher_callback)
 
-        # Creates ervice  (type,ros2 callname,callback)
+        # Create service  (type,ros2 callname,callback)
         self.service = self.create_service(SendData, 'senddata', self.service_callback)
 
         # Start publishing switch for False initially, will change with service call

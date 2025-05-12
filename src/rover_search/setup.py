@@ -1,7 +1,6 @@
 from setuptools import find_packages, setup
-import os
-from glob import glob
-package_name = 'hw4'
+
+package_name = 'rover_search'
 
 setup(
     name=package_name,
@@ -11,21 +10,16 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        (os.path.join('share', package_name, 'launch'), glob('launch/*'))
-
     ],
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='Ian Spehar',
     maintainer_email='ian.spehar01@gmail.com',
-    description='HW4: Actions and more',
+    description='Rover flag search',
     license='BSD-3-Clause',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "oscope = hw4.oscope:main",
-            "actionserver = hw4.nasa:main",
-            "actionclient = hw4.action_client:main"
         ],
     },
 )

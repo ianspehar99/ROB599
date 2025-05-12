@@ -1,0 +1,6 @@
+# Set filter service, decides when to set scan as background
+# Input 
+bool setfilter
+---
+# Output
+string update

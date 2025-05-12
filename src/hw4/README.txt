@@ -6,13 +6,22 @@ This HW includes:
 ------ INSTRUCTIONS ------
 1. To run 3 oscope nodes at 1,5,10 HZ, with 10 Hz oscope clamped at 0.7
 
-- Run launch file: "ros2 launch hw4 wave.py"
+- Run launch file: " ros2 launch hw4 wave.py "
 
-- Then, copy this code into terminal to start all nodes w service:
- ros2 service call oscope1/oscopestart services_messages/srv/SendData "{send: True}"
- ros2 service call oscope5/oscopestart services_messages/srv/SendData "{send: True}"
- ros2 service call oscope10/oscopestart services_messages/srv/SendData "{send: True}"
+- Then use these service calls in a sperate terminal to start each oscope (may cause issues if you do them all at once):
 
+ ros2 service call /oscope1/oscopestart services_messages/srv/SendData "{send: True}"
+ ros2 service call /oscope5/oscopestart services_messages/srv/SendData "{send: True}"
+ ros2 service call /oscope10/oscopestart services_messages/srv/SendData "{send: True}"
+
+
+2. To run the launch sequence (action server and action client) :
+
+- Run launch file " ros2 launch hw4 launchlaunch.py "
+
+- To abort, use the service call:
+
+ros2 service call /abortlaunch services_messages/srv/SendData "{send: True}"
 
 
 

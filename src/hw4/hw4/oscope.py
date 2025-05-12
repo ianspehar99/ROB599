@@ -47,10 +47,10 @@ class OscopeNode(Node):
         self.pub = self.create_publisher(Float32, "oscope",10)
 
         # Create service  (type,ros2 callname,callback)
-        self.service = self.create_service(SendData, 'oscopestart', self.service_callback)
+        self.service = self.create_service(SendData, f'{self.get_name()}/oscopestart', self.service_callback)
 
         #Ceate timer, uses period, so inverse of frequency
-        freq = 100 #Publish at 100 Hz
+        freq = 5 #Publish at 100 Hz
         period = 1/freq
         self.timer = self.create_timer(period,self.callback)
 

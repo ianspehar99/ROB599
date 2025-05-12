@@ -16,6 +16,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/TestPacket.msg"
   "srv/EnableLogging.srv"
   "srv/SendData.srv"
+  "srv/SetFilter.srv"
+  "action/Countdown.action"
   DEPENDENCIES std_msgs builtin_interfaces
 )
 
